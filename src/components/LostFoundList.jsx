@@ -7,7 +7,7 @@ function LostFoundList({ lostfounds, onDeleteLostFound }) {
       {lostfounds.map((lostfound) => (
         <LostFoundItem
           key={lostfound.id}
-          lostfound={{ ...lostfound, is_me: lostfound.is_me || 1 }}
+          lostfound={lostfound}
           onDeleteLostFound={onDeleteLostFound}
         />
       ))}

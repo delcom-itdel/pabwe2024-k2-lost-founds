@@ -1,3 +1,4 @@
+// LostFoundDetail.jsx
 import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { lostFoundItemShape } from "./LostFoundItem";
@@ -11,6 +12,9 @@ import { useParams } from "react-router-dom";
 function LostFoundDetail({ lostfound, onEditLostFound }) {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.currentUser);
+  const isCurrentUserItem = currentUser && lostfound.user_id === currentUser.id;
+
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(lostfound?.title || "");
   const [editedDescription, setEditedDescription] = useState(
@@ -42,6 +46,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
   }, [lostfound]);
 
   const handleFileChange = (event) => {
+    if (!isCurrentUserItem) return; // Prevent non-owners from uploading
     const file = event.target.files[0];
     if (file) {
       const previewURL = URL.createObjectURL(file);
@@ -51,9 +56,10 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
   };
 
   const handleCoverUpload = async (file) => {
+    if (!isCurrentUserItem) return; // Prevent non-owners from uploading
     setIsUploading(true);
     try {
-      const message = await api.postChangeCoverLostFound({
+      await api.postChangeCoverLostFound({
         id: lostfound.id,
         cover: file,
       });
@@ -65,10 +71,12 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
   };
 
   const handleUploadClick = () => {
+    if (!isCurrentUserItem) return; // Prevent non-owners from triggering upload
     fileInputRef.current.click();
   };
 
   const handleSaveChanges = () => {
+    if (!isCurrentUserItem) return; // Prevent non-owners from saving changes
     onEditLostFound(
       lostfound.id,
       editedTitle,
@@ -135,35 +143,36 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                   {lostfound.status === "lost" ? "Lost" : "Found"}
                 </span>
                 <span className={`${badgeCompleted} ms-2`}>{badgeLabel}</span>
-                {/* Status badge for lost/found */}
               </div>
 
-              <div>
-                {/* "Edit" Button */}
-                <button
-                  type="button"
-                  onClick={() => setIsEditing((prevState) => !prevState)}
-                  className="btn btn-sm btn-outline-warning me-2"
-                >
-                  <FaPenToSquare /> {isEditing ? "Cancel Edit" : "Edit"}
-                </button>
+              {isCurrentUserItem && (
+                <div>
+                  {/* "Edit" Button */}
+                  <button
+                    type="button"
+                    onClick={() => setIsEditing((prevState) => !prevState)}
+                    className="btn btn-sm btn-outline-warning me-2"
+                  >
+                    <FaPenToSquare /> {isEditing ? "Cancel Edit" : "Edit"}
+                  </button>
 
-                {/* Update Cover Button */}
-                <button
-                  className="btn btn-sm btn-outline-primary"
-                  onClick={handleUploadClick}
-                >
-                  <FaUpload /> {isUploading ? "Uploading..." : "Update Cover"}
-                </button>
+                  {/* Update Cover Button */}
+                  <button
+                    className="btn btn-sm btn-outline-primary"
+                    onClick={handleUploadClick}
+                  >
+                    <FaUpload /> {isUploading ? "Uploading..." : "Update Cover"}
+                  </button>
 
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  className="d-none"
-                  accept="image/*"
-                  onChange={handleFileChange}
-                />
-              </div>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    className="d-none"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                  />
+                </div>
+              )}
             </div>
 
             <div className="col-12">
@@ -217,7 +226,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                       className="form-select"
                       id="editStatus"
                       value={editedStatus}
-                      onChange={(e) => setEditedStatus(e.target.value)} // Keep as string
+                      onChange={(e) => setEditedStatus(e.target.value)}
                     >
                       <option value="found">Found</option>
                       <option value="lost">Lost</option>

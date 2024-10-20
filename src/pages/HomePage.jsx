@@ -9,12 +9,15 @@ import {
 } from "../states/lostfound/action";
 
 function HomePage() {
-  const { lostfounds = [], isDeleteLostFound = false } = useSelector(
-    (state) => ({
-      lostfounds: state.lostfounds,
-      isDeleteLostFound: state.isDeleteLostFound,
-    })
-  );
+  const {
+    lostfounds = [],
+    isDeleteLostFound = false,
+    currentUser,
+  } = useSelector((state) => ({
+    lostfounds: state.lostfounds,
+    isDeleteLostFound: state.isDeleteLostFound,
+    currentUser: state.currentUser,
+  }));
 
   const queryParams = new URLSearchParams(location.search);
   const is_completed = queryParams.get("is_completed") || "";
@@ -22,6 +25,10 @@ function HomePage() {
   const status = queryParams.get("status") || "";
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(asyncGetMe());
+  }, [dispatch]);
 
   useEffect(() => {
     if (isDeleteLostFound) {

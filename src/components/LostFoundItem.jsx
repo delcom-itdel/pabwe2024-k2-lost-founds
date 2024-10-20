@@ -1,9 +1,15 @@
+// LostFoundItem.jsx
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { postedAt } from "../utils/tools";
 import { FaClock, FaTrash } from "react-icons/fa6";
+import { useSelector } from "react-redux";
 
 function LostFoundItem({ lostfound, onDeleteLostFound }) {
+  const currentUser = useSelector((state) => state.currentUser);
+  const isCurrentUserItem =
+    currentUser && lostfound.user_id && lostfound.user_id === currentUser.id;
+
   let badgeStatus, badgeLabel;
   if (lostfound.is_completed) {
     badgeStatus = "badge bg-success text-white ms-3";
@@ -41,7 +47,7 @@ function LostFoundItem({ lostfound, onDeleteLostFound }) {
               {lostfound.status === "lost" ? "Lost" : "Found"}
             </span>
 
-            {lostfound.is_me === 1 && ( // Conditionally render the delete button if is_me is 1
+            {isCurrentUserItem && (
               <button
                 type="button"
                 onClick={() => {
@@ -91,7 +97,7 @@ const lostFoundItemShape = {
   title: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
   is_completed: PropTypes.number.isRequired,
-  is_me: PropTypes.number,
+  user_id: PropTypes.number.isRequired, // Ensure this is included
   cover: PropTypes.string,
   created_at: PropTypes.string.isRequired,
   updated_at: PropTypes.string.isRequired,
@@ -105,7 +111,6 @@ LostFoundItem.propTypes = {
   onDeleteLostFound: PropTypes.func.isRequired,
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export { lostFoundItemShape };
 
 export default LostFoundItem;

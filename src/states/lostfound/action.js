@@ -124,8 +124,9 @@ function asyncChangeCoverLostFound({ id, cover }) {
   };
 }
 
+// In action.js
 function asyncGetLostFounds(is_completed, is_me, status) {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     dispatch(showLoading());
     try {
       const lostfounds = await api.getAllLostFounds(
@@ -134,8 +135,18 @@ function asyncGetLostFounds(is_completed, is_me, status) {
         status
       );
 
-      dispatch(getLostFoundsActionCreator(lostfounds));
-      return lostfounds;
+      // Retrieve the current user's ID from the state
+      const state = getState();
+      const currentUserId = state.currentUser ? state.currentUser.id : null;
+
+      // Map over the lostfounds and add is_me field
+      const updatedLostfounds = lostfounds.map((lostfound) => ({
+        ...lostfound,
+        is_me: lostfound.user_id === currentUserId ? 1 : 0,
+      }));
+
+      dispatch(getLostFoundsActionCreator(updatedLostfounds));
+      return updatedLostfounds;
     } catch (error) {
       showErrorDialog(error.message);
       return undefined;
