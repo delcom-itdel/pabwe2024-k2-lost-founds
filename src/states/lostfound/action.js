@@ -10,7 +10,17 @@ const ActionType = {
   EDIT_LOSTFOUND: "EDIT_LOSTFOUND",
   GET_STATS_DAILY: "GET_STATS_DAILY",
   GET_STATS_MONTHLY: "GET_STATS_MONTHLY",
+  GET_ME: "GET_ME",
 };
+
+function getMeActionCreator(user) {
+  return {
+    type: ActionType.GET_ME,
+    payload: {
+      user,
+    },
+  };
+}
 
 function getLostFoundsActionCreator(lostfounds) {
   return {
@@ -81,6 +91,20 @@ function getStatsMonthlyActionCreator(stats) {
     payload: {
       stats,
     },
+  };
+}
+
+function asyncGetMe() {
+  return async (dispatch) => {
+    dispatch(showLoading());
+    try {
+      const user = await api.getMe();
+      dispatch(getMeActionCreator(user));
+    } catch (error) {
+      showErrorDialog(error.message);
+    } finally {
+      dispatch(hideLoading());
+    }
   };
 }
 
@@ -219,6 +243,7 @@ function asyncGetStatsMonthly(end_date, total_data) {
 
 export {
   ActionType,
+  asyncGetMe,
   getLostFoundsActionCreator,
   asyncGetLostFounds,
   addLostFoundActionCreator,

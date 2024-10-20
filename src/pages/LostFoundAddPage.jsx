@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   asyncAddLostFound,
   addLostFoundActionCreator,
-} from "../states/lostfounds/action";
+} from "../states/lostfound/action";
 import LostFoundInput from "../components/LostFoundInput";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +17,6 @@ function LostFoundAddPage() {
     if (isAddLostFound) {
       // eslint-disable-next-line no-undef
       Swal.fire({
-        position: "top-end",
         icon: "success",
         title: "LostFound berhasil ditambahkan!",
         showConfirmButton: false,
@@ -28,8 +27,8 @@ function LostFoundAddPage() {
     }
   }, [isAddLostFound, navigate, dispatch]);
 
-  const onAddLostFound = ({ title, description , status}) => {
-    dispatch(asyncAddLostFound({ title, description, status}));
+  const onAddLostFound = ({ title, description, status }) => {
+    dispatch(asyncAddLostFound({ title, description, status }));
   };
 
   return (

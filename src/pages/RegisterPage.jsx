@@ -16,8 +16,10 @@ function RegisterPage() {
   };
 
   return (
-    <div className="container pt-2">
-      <RegisterInput onAuthRegister={onAuthRegister} />
+    <div className="register-page">
+      <div className="form-container">
+        <RegisterInput onAuthRegister={onAuthRegister} />
+      </div>
     </div>
   );
 }

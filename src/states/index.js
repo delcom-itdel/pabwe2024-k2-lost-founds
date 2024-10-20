@@ -12,6 +12,7 @@ import {
   detailLostFoundReducer,
   statsDailyReducer,
   statsMonthlyReducer,
+  userReducer,
 } from "./lostfound/reducer";
 
 const store = configureStore({
@@ -26,6 +27,7 @@ const store = configureStore({
     isUserChangePhoto: isUserChangePhotoReducer,
 
     // Lost and Found
+    currentUser: userReducer,
     lostfounds: lostfoundReducer,
     isAddLostFound: isAddLostFoundReducer,
     isDeleteLostFound: isDeleteLostFoundReducer,

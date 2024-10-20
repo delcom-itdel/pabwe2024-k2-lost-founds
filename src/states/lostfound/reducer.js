@@ -1,5 +1,14 @@
 import { ActionType } from "./action";
 
+function userReducer(user = null, action = {}) {
+  switch (action.type) {
+    case ActionType.GET_ME:
+      return action.payload.user;
+    default:
+      return user;
+  }
+}
+
 function lostfoundReducer(lostfounds = [], action = {}) {
   switch (action.type) {
     case ActionType.GET_LOSTFOUNDS:
@@ -71,6 +80,7 @@ function statsMonthlyReducer(stats = null, action = {}) {
 }
 
 export {
+  userReducer,
   lostfoundReducer,
   isAddLostFoundReducer,
   isDeleteLostFoundReducer,

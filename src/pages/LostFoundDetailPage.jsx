@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   asyncDetailLostFound,
   asyncEditLostFound,
-} from "../states/lostfounds/action";
+} from "../states/lostfound/action";
 import LostFoundDetail from "../components/LostFoundDetail";
 
 function LostFoundDetailPage() {
@@ -19,12 +19,18 @@ function LostFoundDetailPage() {
     }
   }, [id, dispatch]);
 
-  const handleEditLostFound = (id, title, description, is_finished) => {
-    dispatch(asyncEditLostFound(id, title, description, is_finished));
+  const handleEditLostFound = (
+    id,
+    title,
+    description,
+    status,
+    is_completed
+  ) => {
+    dispatch(asyncEditLostFound(id, title, description, status, is_completed));
 
     Swal.fire({
       icon: "success",
-      title: "Berhasil mengedit lostfound!",
+      title: "Berhasil mengedit LostFound!",
       showConfirmButton: false,
       timer: 1200,
     });

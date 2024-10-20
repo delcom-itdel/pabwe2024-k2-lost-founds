@@ -4,24 +4,28 @@ import LostFoundList from "../components/LostFoundList";
 import {
   asyncGetLostFounds,
   asyncDeleteLostFound,
+  asyncGetMe,
   deleteLostFoundActionCreator,
-} from "../states/lostfounds/action";
+} from "../states/lostfound/action";
 
 function HomePage() {
   const { lostfounds = [], isDeleteLostFound = false } = useSelector(
-    (states) => states
+    (state) => ({
+      lostfounds: state.lostfounds,
+      isDeleteLostFound: state.isDeleteLostFound,
+    })
   );
 
   const queryParams = new URLSearchParams(location.search);
-  const is_finished = queryParams.get("is_finished") || "";
+  const is_completed = queryParams.get("is_completed") || "";
+  const is_me = queryParams.get("is_me") || "";
+  const status = queryParams.get("status") || "";
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (isDeleteLostFound) {
-      // eslint-disable-next-line no-undef
       Swal.fire({
-        position: "top-end",
         icon: "success",
         title: "LostFound berhasil dihapus!",
         showConfirmButton: false,
@@ -29,8 +33,12 @@ function HomePage() {
       });
       dispatch(deleteLostFoundActionCreator(false));
     }
-    dispatch(asyncGetLostFounds(is_finished));
-  }, [dispatch, isDeleteLostFound, is_finished]);
+    dispatch(asyncGetLostFounds(is_completed, is_me, status));
+  }, [dispatch, isDeleteLostFound, is_completed]);
+
+  useEffect(() => {
+    dispatch(asyncGetMe());
+  }, [dispatch]);
 
   const onDeleteLostFound = (id) => {
     dispatch(asyncDeleteLostFound(id));
@@ -40,7 +48,7 @@ function HomePage() {
     <section>
       <div className="container pt-1">
         <LostFoundList
-          lostfounds={lostfounds}
+          lostfounds={lostfounds || []}
           onDeleteLostFound={onDeleteLostFound}
         ></LostFoundList>
       </div>
