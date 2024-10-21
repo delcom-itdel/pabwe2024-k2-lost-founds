@@ -1,44 +1,30 @@
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  asyncGetStatsDaily,
-  asyncGetStatsMonthly,
-} from "../states/lostfound/action";
-import LostFoundStats from "../components/LostFoundStatsItem";
+// src/pages/LostFoundStatsPage.jsx
+
+import React, { useState } from "react";
+import LostFoundDailyStats from "../components/LostFoundDailyStats";
+import LostFoundMonthlyStats from "../components/LostFoundMonthlyStats";
 
 function LostFoundStatsPage() {
-  const { type } = useParams(); // 'daily' or 'monthly'
-  const dispatch = useDispatch();
-
-  // Define the end_date and total_data for the API call
-  const end_date = "2024-10-07 22:00:00"; // Example end_date
-  const total_data = 7; // Example total_data value
-
-  const { statsDaily, statsMonthly } = useSelector((state) => ({
-    statsDaily: state.statsDaily,
-    statsMonthly: state.statsMonthly,
-  }));
-
-  const stats = type === "daily" ? statsDaily : statsMonthly;
-
-  // Fetch stats when the component mounts or when the type changes
-  useEffect(() => {
-    if (type === "daily") {
-      dispatch(asyncGetStatsDaily(end_date, total_data));
-    } else if (type === "monthly") {
-      dispatch(asyncGetStatsMonthly(end_date, total_data));
-    }
-  }, [dispatch, type, end_date, total_data]);
+  const [view, setView] = useState("daily");
 
   return (
     <section>
       <div className="container pt-1">
-        {stats ? (
-          <LostFoundStats stats={stats} statsType={type} />
-        ) : (
-          <p>Loading stats...</p>
-        )}
+        <h1>Lost and Found Stats</h1>
+        <div style={{ marginBottom: "20px", marginTop: "10px" }}>
+          <label htmlFor="view-select">Choose Stats Type: </label>
+          <select
+            id="view-select"
+            value={view}
+            onChange={(e) => setView(e.target.value)}
+            style={{ marginLeft: "10px", padding: "5px" }}
+          >
+            <option value="daily">Daily</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
+        {/* Conditionally render the appropriate component */}
+        {view === "daily" ? <LostFoundDailyStats /> : <LostFoundMonthlyStats />}
       </div>
     </section>
   );

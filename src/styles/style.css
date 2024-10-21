@@ -1,3 +1,8 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background: linear-gradient(#f5e7dd, #9bbabd, #51777c, #c4d5c4, #eeeeee);
   margin-bottom: 50px;
@@ -6,20 +11,25 @@ body {
 a {
   text-decoration: none;
 }
+
 .w-300px {
   width: 376px;
 }
+
 .nav-item {
   display: table-cell;
   background: #39883d2e;
 }
+
 .nav-profile {
   border-radius: 50%;
   width: 36px;
 }
+
 .margin-main {
   margin-top: 80px;
 }
+
 .loading {
   position: relative;
   overflow: hidden !important;
@@ -27,6 +37,7 @@ a {
   height: 100vh;
   background-color: #b8e1f1;
 }
+
 .loader {
   position: absolute;
   margin: 0 auto;
@@ -44,17 +55,20 @@ a {
     linear-gradient(currentColor 50%, #0000 0) 50%/4px 60% norepeat;
   animation: l1 2s infinite linear;
 }
+
 .loader:before {
   content: "";
   flex: 1;
   background: linear-gradient(currentColor 50%, #0000 0) 50%/4px 80% no-repeat;
   animation: inherit;
 }
+
 @keyframes l1 {
   100% {
     transform: rotate(1turn);
   }
 }
+
 /* Ensure the entire page takes up full viewport height */
 .register-page,
 .login-page {
@@ -70,12 +84,22 @@ a {
   );
 }
 
+.register-box,
+.login-box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
 /* Centering the form and applying styles */
 .form-container {
   background-color: rgba(200, 221, 235, 0.841);
-  padding: 40px;
-  max-width: 400px;
+  padding: 30px 0px;
   width: 100%;
+  height: 300px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
   border-radius: 10px; /* Membuat form lebih rounded */
 }
@@ -89,7 +113,7 @@ a {
 
 .btn-signup,
 .btn-login {
-  background-color: #51777c;
+  background-color: #889ab6;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -103,11 +127,15 @@ a {
   width: 100%; /* Membuat tombol selebar form */
 }
 
+.btn-login {
+  margin-top: 50px;
+}
+
 .btn-signup:hover,
 .btn-login:hover {
-  background-color: #9bbabd;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
+  background-color: #9bbabd; /* Warna lebih terang saat hover */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); /* Bayangan saat hover */
+  transform: translateY(-2px); /* Efek melayang */
   border: 2px solid #51777c;
   color: #51777c;
   background-color: transparent;
@@ -119,89 +147,53 @@ a {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan lebih kecil saat diklik */
 }
 
-/* .btn-login {
-  background-color: #51777c;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 10px; /* More rectangular but slightly rounded */
-/* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: all 0.3s ease;
+/* Animasi Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-.btn-login:hover {
-  background-color: #9bbabd;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
-}
-
-.btn-login:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-} */
 
 .profile-container {
-  background-color: #caddeb; /* Change this to your preferred color */
+  background-color: #e3e8ef; /* New container color */
   padding: 20px;
-  max-width: 500px; /* Reduce the max-width to make the container smaller */
+  max-width: 600px;
   margin: 0 auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  animation: fadeIn 0.5s ease; /* Tambahkan animasi fade in */
 }
 
 .profile-table {
-  width: 80%; /* Reduce the table width to make it smaller */
+  width: 70%; /* Reduce the table width */
   margin: 0 auto;
-  border-collapse: collapse; /* Ensure the borders are not spaced */
-  border: 3px solid #51777c; /* Outer table border with a thick line */
 }
 
-/* Text alignment for profile table */
 .profile-table th,
 .profile-table td {
-  padding: 8px;
-  border: 2px solid #51777c; /* Thicker inner borders for each cell */
-  text-align: left; /* Align text to the left */
-  font-size: 0.9rem; /* Reduce the font size slightly for a smaller table */
+  padding: 10px;
 }
 
-.profile-table th {
-  background-color: #e3e8ef; /* Light background for headers */
-  color: #14273d; /* Darker text for headers */
-  font-weight: bold;
+.text-center {
+  text-align: center;
 }
 
-/* Profile image styling */
+.card-body {
+  padding: 2rem;
+}
+
 .rounded-circle {
-  border: 5px solid #3a7bd5; /* Increased border thickness */
+  border: 2px solid #3a7bd5;
+  transition: transform 0.3s ease; /* Transisi untuk efek hover pada gambar */
 }
 
-/* Button Styling: Ubah Photo Profile */
-.btn-outline-primary {
-  background-color: #51777c;
-  color: white;
-  border: 2px solid #51777c;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.btn-outline-primary:hover {
-  background-color: #9bbabd;
-  color: #51777c;
-  border-color: #51777c;
-}
-
-.btn-outline-primary:active {
-  background-color: #51777c;
-  color: white;
-  border-color: #51777c;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Button shadow for a more polished effect */
-  transform: scale(0.98); /* Slightly shrink button when clicked */
+.rounded-circle:hover {
+  transform: scale(1.1); /* Sedikit membesar saat hover */
 }
 
 a.btn {
@@ -209,18 +201,78 @@ a.btn {
   border: 2px solid white;
 }
 
-a.btn:hover {
+a.btn:hover,
+a.btn *:hover {
   background-color: transparent;
   border: 2px solid black;
 }
 
-/* @media screen and (max-width: 777px){
-  div.card-body{
-    background-color: black;
-    display: flex;
-    flex-direction: row;
-  }
-} */
+img.nav-profile {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+li.nav-item {
+  background-color: transparent;
+}
+
+.mb-3 input {
+  border-radius: 50px;
+  padding-left: 20px;
+}
+
+.card-registration {
+  width: 500px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form {
+  height: 100%;
+}
+
+.register-header,
+.login-header {
+  width: 40%;
+  height: 100%;
+  align-self: flex-start;
+  margin-top: 40px;
+}
+
+.login-header {
+  margin-left: 10px;
+}
+
+.register-header h1,
+.register-header p,
+.login-header h1,
+.login-header p {
+  text-align: center;
+}
+
+.forum-register {
+  height: 100vh;
+  position: relative;
+  width: 100vh;
+}
+
+.nav-pills .nav-link {
+  color: #889ab6;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: white;
+  background-color: #889ab6;
+}
+
+.register-header,
+.login-header {
+  margin-bottom: 0px;
+}
 
 .split-container {
   display: flex;
