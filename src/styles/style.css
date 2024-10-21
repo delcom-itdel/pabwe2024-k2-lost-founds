@@ -1,4 +1,4 @@
-html{
+html {
   width: 100%;
   height: 100%;
 }
@@ -11,20 +11,25 @@ body {
 a {
   text-decoration: none;
 }
+
 .w-300px {
   width: 376px;
 }
+
 .nav-item {
   display: table-cell;
   background: #39883d2e;
 }
+
 .nav-profile {
   border-radius: 50%;
   width: 36px;
 }
+
 .margin-main {
   margin-top: 80px;
 }
+
 .loading {
   position: relative;
   overflow: hidden !important;
@@ -32,6 +37,7 @@ a {
   height: 100vh;
   background-color: #b8e1f1;
 }
+
 .loader {
   position: absolute;
   margin: 0 auto;
@@ -49,17 +55,20 @@ a {
     linear-gradient(currentColor 50%, #0000 0) 50%/4px 60% norepeat;
   animation: l1 2s infinite linear;
 }
+
 .loader:before {
   content: "";
   flex: 1;
   background: linear-gradient(currentColor 50%, #0000 0) 50%/4px 80% no-repeat;
   animation: inherit;
 }
+
 @keyframes l1 {
   100% {
     transform: rotate(1turn);
   }
 }
+
 /* Ensure the entire page takes up full viewport height */
 .register-page,
 .login-page {
@@ -76,14 +85,13 @@ a {
 }
 
 .register-box,
-.login-box{
+.login-box {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 15px;
-  background-color: ;
 }
 
 /* Centering the form and applying styles */
@@ -102,8 +110,8 @@ a {
 }
 
 .btn-signup,
-.btn-login{
-  background-color: #889AB6;
+.btn-login {
+  background-color: #889ab6;
   color: white;
   border: 2px solid transparent;
   padding: 10px 20px;
@@ -115,12 +123,12 @@ a {
   transition: all 0.3s ease; /* Transisi untuk efek hover */
 }
 
-.btn-login{
+.btn-login {
   margin-top: 50px;
 }
 
 .btn-signup:hover,
-.btn-login:hover{
+.btn-login:hover {
   background-color: #9bbabd; /* Warna lebih terang saat hover */
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); /* Bayangan saat hover */
   transform: translateY(-2px); /* Efek melayang */
@@ -130,9 +138,21 @@ a {
 }
 
 .btn-signup:active,
-.btn-login:active{
+.btn-login:active {
   transform: translateY(0); /* Menghilangkan efek melayang saat diklik */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan lebih kecil saat diklik */
+}
+
+/* Animasi Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .profile-container {
@@ -142,6 +162,7 @@ a {
   margin: 0 auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  animation: fadeIn 0.5s ease; /* Tambahkan animasi fade in */
 }
 
 .profile-table {
@@ -164,35 +185,40 @@ a {
 
 .rounded-circle {
   border: 2px solid #3a7bd5;
+  transition: transform 0.3s ease; /* Transisi untuk efek hover pada gambar */
 }
 
-a.btn{
+.rounded-circle:hover {
+  transform: scale(1.1); /* Sedikit membesar saat hover */
+}
+
+a.btn {
   background-color: white;
   border: 2px solid white;
 }
 
 a.btn:hover,
-a.btn * :hover{
+a.btn *:hover {
   background-color: transparent;
   border: 2px solid black;
 }
 
-img.nav-profile{
+img.nav-profile {
   border-radius: 50%;
   height: 30px;
   width: 30px;
 }
 
-li.nav-item{
+li.nav-item {
   background-color: transparent;
 }
 
-.mb-3 input{
+.mb-3 input {
   border-radius: 50px;
   padding-left: 20px;
 }
 
-.card-registration{
+.card-registration {
   width: 500px;
   position: absolute;
   top: 40%;
@@ -200,53 +226,46 @@ li.nav-item{
   transform: translate(-50%, -50%);
 }
 
-form{
+form {
   height: 100%;
 }
 
 .register-header,
-.login-header{
+.login-header {
   width: 40%;
   height: 100%;
   align-self: flex-start;
   margin-top: 40px;
 }
 
-.login-header{
+.login-header {
   margin-left: 10px;
 }
 
 .register-header h1,
 .register-header p,
 .login-header h1,
-.login-header p{
+.login-header p {
   text-align: center;
 }
 
-.forum-register{
+.forum-register {
   height: 100vh;
   position: relative;
   width: 100vh;
 }
 
 .nav-pills .nav-link {
-  color: #889AB6;
+  color: #889ab6;
 }
 
-.nav-pills .nav-link.active, 
-.nav-pills .show>.nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
   color: white;
-  background-color: #889AB6;
+  background-color: #889ab6;
 }
 
 .register-header,
-.login-header{
+.login-header {
   margin-bottom: 0px;
 }
-/* @media screen and (max-width: 777px){
-  div.card-body{
-    background-color: black;
-    display: flex;
-    flex-direction: row;
-  }
-} */
