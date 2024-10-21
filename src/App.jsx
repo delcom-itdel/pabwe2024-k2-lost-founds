@@ -42,12 +42,9 @@ function App() {
         <header className="fixed-top">
           <Loading />
         </header>
-        <div className="w-300px mx-auto mt-5">
-          <div className="card shadow-sm">
-            <div className="text-center py-2">
-              <h2>Forum App</h2>
-            </div>
-            <ul className="nav nav-pills mb-3">
+        <div className="w-100vh mx-auto mt-5 forum-register">
+          <div className="card shadow-sm card-registration">
+            <ul className="nav nav-pills">
               <li className="nav-item w-50 text-center">
                 <Link className={`nav-link ${activeLogin} btl`} to="/">
                   Login
