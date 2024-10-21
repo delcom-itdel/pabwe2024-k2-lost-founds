@@ -11,40 +11,43 @@ function LoginInput({ onAuthLogin }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Login now!</h1>
-      <div className="form px-4">
-        <div className="mb-3">
-          <label htmlFor="inputEmail" className="form-label">
-            Email
-          </label>
-          <input
-            type="email"
-            id="inputEmail"
-            value={email}
-            onChange={onEmailChange}
-            className="form-control"
-            placeholder="email@example.com"
-            required
-          />
+    <form onSubmit={handleSubmit} className="register-form">
+      <div className="login-box">
+        <div className="login-header">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
         </div>
-        <div className="mb-3">
-          <label htmlFor="inputPassword" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            id="inputPassword"
-            value={password}
-            onChange={onPasswordChange}
-            className="form-control"
-            required
-          />
-        </div>
-        <div className="mb-4 text-end b">
-          <button type="submit" className="btn-login">
-            Login
-          </button>
+        <div className="log-form">   
+          <h1>Login now!</h1>
+          <div className="form px-4">
+            <div className="mb-3">
+              <input
+                type="email"
+                id="inputEmail"
+                value={email}
+                onChange={onEmailChange}
+                className="form-control"
+                placeholder="email@example.com"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="password"
+                id="inputPassword"
+                value={password}
+                onChange={onPasswordChange}
+                className="form-control"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div className="mb-4 text-end b">
+              <button type="submit" className="btn-login">
+                Login
+              </button>
+            </div>
+          </div>      
         </div>
       </div>
     </form>

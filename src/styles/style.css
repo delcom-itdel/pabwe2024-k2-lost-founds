@@ -1,3 +1,8 @@
+html{
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background: linear-gradient(#f5e7dd, #9bbabd, #51777c, #c4d5c4, #eeeeee);
   margin-bottom: 50px;
@@ -70,12 +75,23 @@ a {
   );
 }
 
+.register-box,
+.login-box{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background-color: ;
+}
+
 /* Centering the form and applying styles */
 .form-container {
   background-color: rgba(200, 221, 235, 0.841);
-  padding: 40px;
-  max-width: 400px;
+  padding: 30px 0px;
   width: 100%;
+  height: 300px;
 }
 
 .form-container h1 {
@@ -87,7 +103,7 @@ a {
 
 .btn-signup,
 .btn-login{
-  background-color: #51777c;
+  background-color: #889AB6;
   color: white;
   border: 2px solid transparent;
   padding: 10px 20px;
@@ -97,6 +113,10 @@ a {
   cursor: pointer;
   font-weight: 700;
   transition: all 0.3s ease; /* Transisi untuk efek hover */
+}
+
+.btn-login{
+  margin-top: 50px;
 }
 
 .btn-signup:hover,
@@ -114,29 +134,6 @@ a {
   transform: translateY(0); /* Menghilangkan efek melayang saat diklik */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan lebih kecil saat diklik */
 }
-
-/* .btn-login {
-  background-color: #51777c;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 10px; /* More rectangular but slightly rounded */
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-login:hover {
-  background-color: #9bbabd;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
-}
-
-.btn-login:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-} */ */
 
 .profile-container {
   background-color: #e3e8ef; /* New container color */
@@ -174,11 +171,78 @@ a.btn{
   border: 2px solid white;
 }
 
-a.btn:hover{
+a.btn:hover,
+a.btn * :hover{
   background-color: transparent;
   border: 2px solid black;
 }
 
+img.nav-profile{
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+li.nav-item{
+  background-color: transparent;
+}
+
+.mb-3 input{
+  border-radius: 50px;
+  padding-left: 20px;
+}
+
+.card-registration{
+  width: 500px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form{
+  height: 100%;
+}
+
+.register-header,
+.login-header{
+  width: 40%;
+  height: 100%;
+  align-self: flex-start;
+  margin-top: 40px;
+}
+
+.login-header{
+  margin-left: 10px;
+}
+
+.register-header h1,
+.register-header p,
+.login-header h1,
+.login-header p{
+  text-align: center;
+}
+
+.forum-register{
+  height: 100vh;
+  position: relative;
+  width: 100vh;
+}
+
+.nav-pills .nav-link {
+  color: #889AB6;
+}
+
+.nav-pills .nav-link.active, 
+.nav-pills .show>.nav-link {
+  color: white;
+  background-color: #889AB6;
+}
+
+.register-header,
+.login-header{
+  margin-bottom: 0px;
+}
 /* @media screen and (max-width: 777px){
   div.card-body{
     background-color: black;
