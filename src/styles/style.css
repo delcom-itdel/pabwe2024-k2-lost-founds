@@ -85,37 +85,44 @@ a {
   margin-bottom: 20px;
 }
 
-.btn-signup {
+.btn-signup,
+.btn-login{
   background-color: #51777c;
   color: white;
-  border: none;
+  border: 2px solid transparent;
   padding: 10px 20px;
   font-size: 14px;
   border-radius: 10px; /* Membuat tombol berbentuk bulat */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan */
   cursor: pointer;
+  font-weight: 700;
   transition: all 0.3s ease; /* Transisi untuk efek hover */
 }
 
-.btn-signup:hover {
+.btn-signup:hover,
+.btn-login:hover{
   background-color: #9bbabd; /* Warna lebih terang saat hover */
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); /* Bayangan saat hover */
   transform: translateY(-2px); /* Efek melayang */
+  border: 2px solid #51777c;
+  color: #51777c;
+  background-color: transparent;
 }
 
-.btn-signup:active {
+.btn-signup:active,
+.btn-login:active{
   transform: translateY(0); /* Menghilangkan efek melayang saat diklik */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan lebih kecil saat diklik */
 }
 
-.btn-login {
+/* .btn-login {
   background-color: #51777c;
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 14px;
   border-radius: 10px; /* More rectangular but slightly rounded */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -129,7 +136,7 @@ a {
 .btn-login:active {
   transform: translateY(0);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+} */ */
 
 .profile-container {
   background-color: #e3e8ef; /* New container color */
@@ -161,3 +168,21 @@ a {
 .rounded-circle {
   border: 2px solid #3a7bd5;
 }
+
+a.btn{
+  background-color: white;
+  border: 2px solid white;
+}
+
+a.btn:hover{
+  background-color: transparent;
+  border: 2px solid black;
+}
+
+/* @media screen and (max-width: 777px){
+  div.card-body{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+  }
+} */
