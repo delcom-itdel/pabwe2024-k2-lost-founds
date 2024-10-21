@@ -1,11 +1,15 @@
 html {
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 body {
   background: linear-gradient(#f5e7dd, #9bbabd, #51777c, #c4d5c4, #eeeeee);
-  margin-bottom: 50px;
+  margin: 0; /* Remove any default body margins */
+  padding: 0;
 }
 
 a {
@@ -26,10 +30,19 @@ a {
   width: 36px;
 }
 
+.navbar {
+  margin: 0; /* Ensures no space below navigation */
+  padding: 0; /* Ensures no extra padding at the bottom */
+}
 .margin-main {
   margin-top: 80px;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 .loading {
   position: relative;
   overflow: hidden !important;
@@ -97,10 +110,10 @@ a {
 /* Centering the form and applying styles */
 .form-container {
   background-color: rgba(200, 221, 235, 0.841);
-  padding: 30px 0px;
+  padding: 30px;
   width: 100%;
-  height: 300px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+  max-width: 500px; /* Restricts max width for the form */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px; /* Membuat form lebih rounded */
 }
 
@@ -188,7 +201,7 @@ a {
 }
 
 .rounded-circle {
-  border: 2px solid #3a7bd5;
+  border: 2px solid #b4cbec;
   transition: transform 0.3s ease; /* Transisi untuk efek hover pada gambar */
 }
 
@@ -275,32 +288,38 @@ form {
 }
 
 .split-container {
-  display: flex;
+  display: flex; /* Ensures both sides are evenly spaced */
   height: 100vh;
+  margin-top: 0; /* Ensure no margin at the top */
+  padding-top: 0;
 }
 
 .left-side {
-  flex: 1;
-  background-image: url("ex2.png"); /* Ganti dengan path gambar */
+  flex: 1; /* Takes up equal width as the right side */
+  background-image: url("gambar.jpg"); /* Ganti dengan path gambar */
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 200px;
+  padding-top: 0;
 }
 
 .left-content {
-  color: white;
+  color: rgb(241, 249, 255);
   text-align: center;
-  padding: 20px;
+  padding: 70px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
 }
 
 .right-side {
-  flex: 1;
+  flex: 1; /* Takes up the right half */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
+  background-color: #e6eaea;
+  padding-top: 0;
 }
