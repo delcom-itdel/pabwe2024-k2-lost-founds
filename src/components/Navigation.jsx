@@ -14,7 +14,7 @@ function Navigation({ authLogin, onAuthSignOut }) {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg navbar-dark navigation">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             Lost & Found App
@@ -32,7 +32,7 @@ function Navigation({ authLogin, onAuthSignOut }) {
           </button>
           <div className="collapse navbar-collapse" id="navApp">
             <ul className="navbar-nav ms-auto">
-              <li className="mt-2">
+              <li className="mt-2 btn-homepage">
                 <Link
                   className="btn btn-light btn-sm text-dark me-2"
                   to="/lostfound/stats"
@@ -40,7 +40,7 @@ function Navigation({ authLogin, onAuthSignOut }) {
                   <FaChartColumn /> Stats
                 </Link>
               </li>
-              <li className="mt-2">
+              <li className="mt-2 btn-homepage">
                 <Link
                   className="btn btn-light btn-sm text-dark"
                   to="/lostfound/add"

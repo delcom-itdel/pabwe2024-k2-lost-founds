@@ -13,7 +13,7 @@ function RegisterInput({ onAuthRegister }) {
 
   return (
     <form onSubmit={handleSubmit} className="register-form">
-      <div className="register-box">
+      <div className="register-box" >
         <div className="register-header">
           <h1>Hello, Friend!</h1>
           <p>Enter your personal details and start journey with us</p>
