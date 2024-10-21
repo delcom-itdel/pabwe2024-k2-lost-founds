@@ -37,7 +37,7 @@ function LostFoundInput({ onAddLostFound }) {
         <form onSubmit={handleOnAddLostFound}>
           <div className="mb-3">
             <label htmlFor="inputTitle" className="form-label">
-              Judul
+              Title of the Item
             </label>
             <div className="input-group">
               <input
@@ -53,7 +53,7 @@ function LostFoundInput({ onAddLostFound }) {
           </div>
           <div>
             <label htmlFor="inputBody" className="form-label">
-              Deskripsi
+              Please describe the item with as much detail as possible
             </label>
             <textarea
               rows="5"
@@ -68,7 +68,7 @@ function LostFoundInput({ onAddLostFound }) {
           </div>
           <div className="mb-4 text-end mt-3">
             <button type="submit" className="btn btn-primary">
-              Simpan
+              Add to Lost & Found
             </button>
           </div>
         </form>

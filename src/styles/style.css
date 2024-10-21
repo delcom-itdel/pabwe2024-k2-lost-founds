@@ -76,6 +76,8 @@ a {
   padding: 40px;
   max-width: 400px;
   width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+  border-radius: 10px; /* Membuat form lebih rounded */
 }
 
 .form-container h1 {
@@ -89,14 +91,16 @@ a {
 .btn-login {
   background-color: #51777c;
   color: white;
-  border: 2px solid transparent;
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 10px; /* Membuat tombol berbentuk bulat */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan */
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan lebih besar */
   cursor: pointer;
   font-weight: 700;
   transition: all 0.3s ease; /* Transisi untuk efek hover */
+  margin-top: 20px; /* Tambahkan margin untuk memberikan spasi */
+  width: 100%; /* Membuat tombol selebar form */
 }
 
 .btn-signup:hover,
@@ -217,3 +221,34 @@ a.btn:hover {
     flex-direction: row;
   }
 } */
+
+.split-container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-side {
+  flex: 1;
+  background-image: url("ex2.png"); /* Ganti dengan path gambar */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-content {
+  color: white;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.right-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}

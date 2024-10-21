@@ -15,7 +15,6 @@ function LostFoundAddPage() {
 
   useEffect(() => {
     if (isAddLostFound) {
-      // eslint-disable-next-line no-undef
       Swal.fire({
         icon: "success",
         title: "LostFound berhasil ditambahkan!",
@@ -32,9 +31,21 @@ function LostFoundAddPage() {
   };
 
   return (
-    <section>
-      <div className="container pt-1">
-        <LostFoundInput onAddLostFound={onAddLostFound} />
+    <section className="split-container">
+      <div className="left-side">
+        <div className="left-content">
+          <h1>Help Us Reunite Lost Items with Their Owners</h1>
+          <p>
+            Your contribution can make someone's day better! If you've found
+            something, or lost something important, please provide the details
+            below to help us reconnect it with the rightful owner.
+          </p>
+        </div>
+      </div>
+      <div className="right-side">
+        <div className="form-container">
+          <LostFoundInput onAddLostFound={onAddLostFound} />
+        </div>
       </div>
     </section>
   );
