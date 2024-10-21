@@ -86,7 +86,7 @@ a {
 }
 
 .btn-signup,
-.btn-login{
+.btn-login {
   background-color: #51777c;
   color: white;
   border: 2px solid transparent;
@@ -100,17 +100,17 @@ a {
 }
 
 .btn-signup:hover,
-.btn-login:hover{
-  background-color: #9bbabd; /* Warna lebih terang saat hover */
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); /* Bayangan saat hover */
-  transform: translateY(-2px); /* Efek melayang */
+.btn-login:hover {
+  background-color: #9bbabd;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
   border: 2px solid #51777c;
   color: #51777c;
   background-color: transparent;
 }
 
 .btn-signup:active,
-.btn-login:active{
+.btn-login:active {
   transform: translateY(0); /* Menghilangkan efek melayang saat diklik */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan lebih kecil saat diklik */
 }
@@ -122,7 +122,7 @@ a {
   padding: 10px 20px;
   font-size: 14px;
   border-radius: 10px; /* More rectangular but slightly rounded */
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -136,45 +136,76 @@ a {
 .btn-login:active {
   transform: translateY(0);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-} */ */
+} */
 
 .profile-container {
-  background-color: #e3e8ef; /* New container color */
+  background-color: #caddeb; /* Change this to your preferred color */
   padding: 20px;
-  max-width: 600px;
+  max-width: 500px; /* Reduce the max-width to make the container smaller */
   margin: 0 auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 
 .profile-table {
-  width: 70%; /* Reduce the table width */
+  width: 80%; /* Reduce the table width to make it smaller */
   margin: 0 auto;
+  border-collapse: collapse; /* Ensure the borders are not spaced */
+  border: 3px solid #51777c; /* Outer table border with a thick line */
 }
 
+/* Text alignment for profile table */
 .profile-table th,
 .profile-table td {
-  padding: 10px;
+  padding: 8px;
+  border: 2px solid #51777c; /* Thicker inner borders for each cell */
+  text-align: left; /* Align text to the left */
+  font-size: 0.9rem; /* Reduce the font size slightly for a smaller table */
 }
 
-.text-center {
-  text-align: center;
+.profile-table th {
+  background-color: #e3e8ef; /* Light background for headers */
+  color: #14273d; /* Darker text for headers */
+  font-weight: bold;
 }
 
-.card-body {
-  padding: 2rem;
-}
-
+/* Profile image styling */
 .rounded-circle {
-  border: 2px solid #3a7bd5;
+  border: 5px solid #3a7bd5; /* Increased border thickness */
 }
 
-a.btn{
+/* Button Styling: Ubah Photo Profile */
+.btn-outline-primary {
+  background-color: #51777c;
+  color: white;
+  border: 2px solid #51777c;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #9bbabd;
+  color: #51777c;
+  border-color: #51777c;
+}
+
+.btn-outline-primary:active {
+  background-color: #51777c;
+  color: white;
+  border-color: #51777c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Button shadow for a more polished effect */
+  transform: scale(0.98); /* Slightly shrink button when clicked */
+}
+
+a.btn {
   background-color: white;
   border: 2px solid white;
 }
 
-a.btn:hover{
+a.btn:hover {
   background-color: transparent;
   border: 2px solid black;
 }
