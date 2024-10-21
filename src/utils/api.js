@@ -186,75 +186,50 @@ const api = (() => {
     if (!success) {
       throw new Error(message);
     }
-
-    console.log("API response:", responseJson);
-
     const {
       data: { lost_founds },
     } = responseJson;
     return lost_founds;
   }
 
-  async function getStatsDaily() {
-    const response = await _fetchWithAuth(
-      `${BASE_URL}/lost-founds/stats/daily`
-    );
-    const responseJson = await response.json();
+  async function getStatsDaily({ endDate, totalData }) {
+    const url = new URL(`${BASE_URL}/lost-founds/stats/daily`);
+    url.searchParams.append("end_date", endDate);
+    url.searchParams.append("total_data", totalData);
 
-    const { success, message, data } = responseJson;
-    if (!success) {
-      throw new Error(message);
+    const response = await _fetchWithAuth(url.toString(), {
+      method: "GET",
+    });
+
+    if (!response.ok) {
+      const responseJson = await response.json();
+      throw new Error(
+        responseJson.message || "Failed to fetch daily lost found stats"
+      );
     }
 
-    console.log("API response:", responseJson);
-
-    const {
-      stats_lost,
-      stats_losts_completed,
-      stats_losts_process,
-      stats_founds,
-      stats_founds_completed,
-      stats_founds_process,
-    } = data;
-
-    return {
-      stats_lost,
-      stats_losts_completed,
-      stats_losts_process,
-      stats_founds,
-      stats_founds_completed,
-      stats_founds_process,
-    };
+    const data = await response.json();
+    return data;
   }
 
-  async function getStatsMonthly() {
-    const response = await _fetchWithAuth(
-      `${BASE_URL}/lost-founds/stats/monthly`
-    );
-    const responseJson = await response.json();
+  async function getStatsMonthly({ endDate, totalData }) {
+    const url = new URL(`${BASE_URL}/lost-founds/stats/monthly`);
+    url.searchParams.append("end_date", endDate);
+    url.searchParams.append("total_data", totalData);
 
-    const { success, message, data } = responseJson;
-    if (!success) {
-      throw new Error(message);
+    const response = await _fetchWithAuth(url.toString(), {
+      method: "GET",
+    });
+
+    if (!response.ok) {
+      const responseJson = await response.json();
+      throw new Error(
+        responseJson.message || "Failed to fetch monthly lost found stats"
+      );
     }
 
-    const {
-      stats_lost,
-      stats_losts_completed,
-      stats_losts_process,
-      stats_founds,
-      stats_founds_completed,
-      stats_founds_process,
-    } = data;
-
-    return {
-      stats_lost,
-      stats_losts_completed,
-      stats_losts_process,
-      stats_founds,
-      stats_founds_completed,
-      stats_founds_process,
-    };
+    const data = await response.json();
+    return data;
   }
 
   async function getDetailLostFound(id) {

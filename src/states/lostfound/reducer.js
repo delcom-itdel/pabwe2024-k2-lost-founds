@@ -61,7 +61,7 @@ function detailLostFoundReducer(lostfound = null, action = {}) {
   }
 }
 
-function statsDailyReducer(stats = null, action = {}) {
+function statsDailyReducer(stats = {}, action = {}) {
   switch (action.type) {
     case ActionType.GET_STATS_DAILY:
       return action.payload.stats;
@@ -70,7 +70,7 @@ function statsDailyReducer(stats = null, action = {}) {
   }
 }
 
-function statsMonthlyReducer(stats = null, action = {}) {
+function statsMonthlyReducer(stats = {}, action = {}) {
   switch (action.type) {
     case ActionType.GET_STATS_MONTHLY:
       return action.payload.stats;
