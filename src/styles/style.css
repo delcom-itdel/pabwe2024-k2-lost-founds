@@ -312,3 +312,45 @@ form {
 .navigation{
   background-color: #214063;;
 }
+
+
+.image-detail p{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-detail h5{
+  align-self: start;
+}
+
+.image-detail{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+
+}
+
+.product-img img{
+  width: 10px;
+  height: 10px;
+}
+
+.detail-header{
+  flex-direction: column;
+}
+
+.badge-detail{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.col-12 > *{
+  width: 100%;
+}
+
+.detail-txt *{
+  font-size: smaller;
+}
