@@ -3,7 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { lostFoundItemShape } from "./LostFoundItem";
 import { postedAt } from "../utils/tools";
-import { FaClock, FaPenToSquare, FaUpload } from "react-icons/fa6";
+import { FaClock, FaPenToSquare, FaUpload} from "react-icons/fa6";
+import { MdOutlineImageNotSupported } from "react-icons/md";
 import api from "../utils/api";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncDetailLostFound } from "../states/lostfound/action";
@@ -92,7 +93,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
     : "badge bg-warning text-dark ms-3";
   let badgeLabel = lostfound.is_completed ? "Selesai" : "Belum Selesai";
 
-  let badgeStatus = "badge ms-3";
+  let badgeStatus = "badge ";
   if (lostfound.status === "lost") {
     badgeStatus += " bg-danger text-white";
   } else if (lostfound.status === "found") {
@@ -101,12 +102,12 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
 
   return (
     <div className="card mt-3">
-      <div className="card-body">
+      <div className="card-body image-detail">
         {/* Cover Image */}
         <div
           style={{
-            width: "100%",
-            height: "300px",
+            width: "300px",
+            height:"300px",
             position: "relative",
             backgroundColor: "#f0f0f1",
             marginBottom: "5px",
@@ -129,7 +130,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
               }}
             />
           ) : (
-            <p>No cover image</p>
+            <p><MdOutlineImageNotSupported />&nbsp; &nbsp;No cover image</p>
           )}
         </div>
 
@@ -137,13 +138,15 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
         <div className="row align-items-center">
           <div className="col-12">
             <div className="d-flex justify-content-between align-items-center">
-              <div className="d-flex align-items-center">
+              <div className="d-flex align-items-center mt-2 detail-header">
+                <div className="d-flex badge-detail">
+                  <span className={badgeStatus}>
+                    {lostfound.status === "lost" ? "Lost" : "Found"}
+                  </span>
+                  <span className={`${badgeCompleted} ms-2`}>{badgeLabel}</span>
+                </div>
                 <h5 className="mb-0">{lostfound.title}</h5>
-                <span className={badgeStatus}>
-                  {lostfound.status === "lost" ? "Lost" : "Found"}
-                </span>
-                <span className={`${badgeCompleted} ms-2`}>{badgeLabel}</span>
-              </div>
+                </div>
 
               {isCurrentUserItem && (
                 <div>
@@ -176,11 +179,11 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
             </div>
 
             <div className="col-12">
-              <div className="text-sm op-5">
+              <div className="text-sm op-5 detail-txt">
                 <FaClock />
-                <span className="ps-2">{postedAt(lostfound.created_at)}</span>
+                <span className="ps-1">{postedAt(lostfound.created_at)}</span>
                 {/* Display author */}
-                <span className="ms-3 text-muted">
+                <span className="ms-2 text-muted">
                   {lostfound.author
                     ? `by ${lostfound.author.name}`
                     : "Author unknown"}
