@@ -1,5 +1,3 @@
-// src/components/LostFoundMonthlyStats.jsx
-
 import React, { useState, useEffect } from "react";
 import api from "../utils/api";
 
@@ -13,7 +11,6 @@ function LostFoundMonthlyStats() {
       setLoading(true);
       setError("");
       try {
-        // Make the endDate dynamic based on current date
         const endDate = new Date();
         const formattedEndDate = `${endDate.getFullYear()}-${String(
           endDate.getMonth() + 1
@@ -23,8 +20,8 @@ function LostFoundMonthlyStats() {
         )} 22:00:00`;
 
         const result = await api.getStatsMonthly({
-          endDate: formattedEndDate, // Dynamic date
-          totalData: 5, // Fetch data for 12 months
+          endDate: formattedEndDate,
+          totalData: 12,
         });
         setStats(result.data);
       } catch (err) {
@@ -35,24 +32,16 @@ function LostFoundMonthlyStats() {
     };
 
     fetchMonthlyStats();
-  }, []); // Runs once on mount
+  }, []);
 
   return (
     <div>
-      <h2>Monthly Lost & Found Stats</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      <h2>Monthly Lost & Found Stats (Last 12 months)</h2>
+      {error && <p className="error-message">{error}</p>}
       {loading ? (
-        <p>Loading...</p>
+        <p className="loading-message">Loading...</p>
       ) : (
-        <table
-          border="1"
-          cellPadding="10"
-          style={{
-            borderCollapse: "collapse",
-            width: "100%",
-            marginTop: "10px",
-          }}
-        >
+        <table className="stats-table">
           <thead>
             <tr>
               <th>Month</th>

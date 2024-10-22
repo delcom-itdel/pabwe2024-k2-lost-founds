@@ -26,7 +26,7 @@ function LostFoundInput({ onAddLostFound }) {
   }
 
   function handleStatus({ target }) {
-    setStatus(target.value); // Update status berdasarkan input
+    setStatus(target.value);
   }
 
   return (

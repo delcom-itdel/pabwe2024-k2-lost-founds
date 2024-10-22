@@ -204,7 +204,7 @@ const api = (() => {
     if (!response.ok) {
       const responseJson = await response.json();
       throw new Error(
-        responseJson.message || "Failed to fetch daily lost found stats"
+        responseJson.message || "Failed to fetch monthly lost found stats"
       );
     }
 
