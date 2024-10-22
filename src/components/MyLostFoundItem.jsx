@@ -69,7 +69,7 @@ function LostFoundItem({ lostfound, onDeleteLostFound }) {
               }}
               className="btn btn-sm btn-outline-danger ms-3"
             >
-              <FaTrash /> Hapus
+              <FaTrash />
             </button>
           </div>
 

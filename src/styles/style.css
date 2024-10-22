@@ -219,18 +219,19 @@ form {
   width: 40%;
   height: 100%;
   align-self: flex-start;
-  margin-top: 40px;
 }
 
-.login-header {
-  margin-left: 10px;
-}
 
 .register-header h1,
 .register-header p,
 .login-header h1,
 .login-header p {
   text-align: center;
+}
+
+.register-header h1,
+.login-header h1{
+  font-size: 2rem;
 }
 
 .forum-register {
@@ -249,15 +250,15 @@ form {
   background-color: #14273d;
 }
 
-.register-header,
-.login-header {
-  margin-bottom: 0px;
-}
-
 /* Split container styling for LostFoundAddPage */
 .split-container {
   display: flex;
   height: 100vh;
+  margin-top: 70px;
+}
+
+.container{
+  margin-top: 80px;
 }
 
 /* Left side (image + content) */
@@ -410,7 +411,7 @@ textarea:focus {
 
 .navigation {
   background-color: #214063;
-  padding: 15px 5px 15px 15px;
+  padding: 15px 0px 15px 10px;
 }
 
 
@@ -483,4 +484,150 @@ textarea:focus {
 
 .mb-2 label{
   margin: 5px 0px 3px 0px;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  border: 2px solid #51777c;
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 12px 15px;
+  border: 1px solid #51777c;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.stats-table th {
+  background-color: #214063;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.stats-table tr:nth-child(even) {
+  background-color: #e3e8ef;
+}
+
+.stats-table tr:hover {
+  background-color: #b8e1f1;
+  cursor: pointer;
+}
+
+.stats-table td {
+  color: #14273d;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.loading-message {
+  color: #14273d;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  border: 2px solid #51777c;
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 12px 15px;
+  border: 1px solid #51777c;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.stats-table th {
+  background-color: #214063;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.stats-table tr:nth-child(even) {
+  background-color: #e3e8ef;
+}
+
+.stats-table tr:hover {
+  background-color: #b8e1f1;
+  cursor: pointer;
+}
+
+.stats-table td {
+  color: #14273d;
+}
+
+h2 {
+  color: #14273d;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.loading-message {
+  color: #14273d;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image-detail p {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-detail h5 {
+  align-self: start;
+}
+
+.image-detail {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.product-img img {
+  width: 10px;
+  height: 10px;
+}
+
+.detail-header {
+  flex-direction: column;
+}
+
+.badge-detail {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.col-12 > * {
+  width: 100%;
+}
+
+.detail-txt * {
+  font-size: smaller;
 }
