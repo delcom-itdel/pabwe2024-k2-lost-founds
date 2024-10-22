@@ -1,11 +1,15 @@
 html {
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 body {
-  margin-bottom: 50px;
-  background-color: #CADDEB;
+  margin: 0; /* Remove any default body margins */
+  padding: 0;
+  background-color: #caddeb;
 }
 
 a {
@@ -26,10 +30,19 @@ a {
   width: 36px;
 }
 
+.navbar {
+  margin: 0; /* Ensures no space below navigation */
+  padding: 0; /* Ensures no extra padding at the bottom */
+}
 .margin-main {
   margin-top: 80px;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 .loading {
   position: relative;
   overflow: hidden !important;
@@ -97,10 +110,10 @@ a {
 /* Centering the form and applying styles */
 .form-container {
   background-color: rgba(160, 179, 192, 0.841);
-  padding: 30px 0px;
+  padding: 30px;
   width: 100%;
-  height: 300px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+  max-width: 500px; /* Restricts max width for the form */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px; /* Membuat form lebih rounded */
 }
 
@@ -113,7 +126,7 @@ a {
 
 .btn-signup,
 .btn-login {
-  background-color: #14273d;;
+  background-color: #14273d;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -193,7 +206,7 @@ a {
 
 /* Profile image styling */
 .rounded-circle {
-  border: 2px solid #3a7bd5;
+  border: 2px solid #b4cbec;
   transition: transform 0.3s ease; /* Transisi untuk efek hover pada gambar */
 }
 
@@ -206,7 +219,7 @@ a.btn {
   border: 2px solid white;
 }
 
-a.btn:hover{
+a.btn:hover {
   background-color: transparent;
   border: 2px solid black;
 }
@@ -264,13 +277,13 @@ form {
 }
 
 .nav-pills .nav-link {
-  color: #14273d;;
+  color: #14273d;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: white;
-  background-color: #14273d;;
+  background-color: #14273d;
 }
 
 .register-header,
@@ -279,38 +292,44 @@ form {
 }
 
 .split-container {
-  display: flex;
+  display: flex; /* Ensures both sides are evenly spaced */
   height: 100vh;
+  margin-top: 0; /* Ensure no margin at the top */
+  padding-top: 0;
 }
 
 .left-side {
-  flex: 1;
-  background-image: url("ex2.png"); /* Ganti dengan path gambar */
+  flex: 1; /* Takes up equal width as the right side */
+  background-image: url("gambar.jpg"); /* Ganti dengan path gambar */
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 200px;
+  padding-top: 0;
 }
 
 .left-content {
-  color: white;
+  color: rgb(241, 249, 255);
   text-align: center;
-  padding: 20px;
+  padding: 70px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
 }
 
 .right-side {
-  flex: 1;
+  flex: 1; /* Takes up the right half */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
+  background-color: #e6eaea;
+  padding-top: 0;
 }
 
-.navigation{
-  background-color: #214063;;
+.navigation {
+  background-color: #214063;
 }
 
 
