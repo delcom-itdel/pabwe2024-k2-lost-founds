@@ -446,12 +446,6 @@ textarea:focus {
   color: #14273d;
 }
 
-h2 {
-  color: #14273d;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-}
-
 .error-message {
   color: red;
   font-weight: bold;

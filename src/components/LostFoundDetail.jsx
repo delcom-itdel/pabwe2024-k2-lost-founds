@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { lostFoundItemShape } from "./LostFoundItem";
 import { postedAt } from "../utils/tools";
-import { FaClock, FaPenToSquare, FaUpload} from "react-icons/fa6";
+import { FaClock, FaPenToSquare, FaUpload } from "react-icons/fa6";
 import { MdOutlineImageNotSupported } from "react-icons/md";
 import api from "../utils/api";
 import { useDispatch, useSelector } from "react-redux";
@@ -107,7 +107,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
         <div
           style={{
             width: "300px",
-            height:"300px",
+            height: "300px",
             position: "relative",
             backgroundColor: "#f0f0f1",
             marginBottom: "5px",
@@ -130,7 +130,10 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
               }}
             />
           ) : (
-            <p><MdOutlineImageNotSupported />&nbsp; &nbsp;No cover image</p>
+            <p>
+              <MdOutlineImageNotSupported />
+              &nbsp; &nbsp;No cover image
+            </p>
           )}
         </div>
 
@@ -146,7 +149,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                   <span className={`${badgeCompleted} ms-2`}>{badgeLabel}</span>
                 </div>
                 <h5 className="mb-0">{lostfound.title}</h5>
-                </div>
+              </div>
 
               {isCurrentUserItem && (
                 <div>

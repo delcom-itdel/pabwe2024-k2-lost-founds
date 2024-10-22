@@ -1,3 +1,4 @@
+// HomePage.jsx
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import LostFoundList from "../components/LostFoundList";
@@ -51,11 +52,16 @@ function HomePage() {
     dispatch(asyncDeleteLostFound(id));
   };
 
+  // Sorting from earliest to latest
+  const sortedLostFounds = lostfounds.slice().sort((a, b) => {
+    return new Date(b.created_at) - new Date(a.created_at);
+  });
+
   return (
     <section>
       <div className="container pt-1">
         <LostFoundList
-          lostfounds={lostfounds || []}
+          lostfounds={sortedLostFounds}
           onDeleteLostFound={onDeleteLostFound}
         ></LostFoundList>
       </div>
