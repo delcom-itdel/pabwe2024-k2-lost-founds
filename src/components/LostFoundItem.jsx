@@ -5,11 +5,13 @@ import { postedAt } from "../utils/tools";
 import { FaClock, FaTrash } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 
+// LostFoundItem Component
 function LostFoundItem({ lostfound, onDeleteLostFound }) {
   const currentUser = useSelector((state) => state.currentUser);
   const isCurrentUserItem =
     currentUser && lostfound.user_id && lostfound.user_id === currentUser.id;
 
+  // Badge status and label logic
   let badgeStatus, badgeLabel;
   if (lostfound.is_completed) {
     badgeStatus = "badge bg-success text-white ms-3";
@@ -19,6 +21,7 @@ function LostFoundItem({ lostfound, onDeleteLostFound }) {
     badgeLabel = "Belum Selesai";
   }
 
+  // Status class for lost or found
   let statusClass = "badge ms-3";
   if (lostfound.status === "lost") {
     statusClass += " bg-danger text-white";
@@ -26,6 +29,7 @@ function LostFoundItem({ lostfound, onDeleteLostFound }) {
     statusClass += " bg-info text-white";
   }
 
+  // Render JSX
   return (
     <div className="card mt-3">
       <div className="card-body">
@@ -92,6 +96,7 @@ function LostFoundItem({ lostfound, onDeleteLostFound }) {
   );
 }
 
+// PropTypes Definition
 const lostFoundItemShape = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
@@ -112,5 +117,4 @@ LostFoundItem.propTypes = {
 };
 
 export { lostFoundItemShape };
-
 export default LostFoundItem;

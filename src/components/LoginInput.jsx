@@ -14,10 +14,10 @@ function LoginInput({ onAuthLogin }) {
     <form onSubmit={handleSubmit} className="register-form">
       <div className="login-box">
         <div className="login-header">
-          <h1>Welcome Back!</h1>
-          <p>To keep connected with us please login with your personal info</p>
+          <h1>Lost & Found</h1>
+          <p>Your go-to app for Lost & Founds</p>
         </div>
-        <div className="log-form">   
+        <div className="log-form">
           <h1>Login now!</h1>
           <div className="form px-4">
             <div className="mb-3">
@@ -47,7 +47,7 @@ function LoginInput({ onAuthLogin }) {
                 Login
               </button>
             </div>
-          </div>      
+          </div>
         </div>
       </div>
     </form>
