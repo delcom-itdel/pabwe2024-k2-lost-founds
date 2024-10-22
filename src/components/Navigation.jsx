@@ -17,7 +17,7 @@ function Navigation({ authLogin, onAuthSignOut }) {
       <nav className="navbar navbar-expand-lg navbar-dark navigation">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            Lost & Found App
+            Lost & Found
           </Link>
           <button
             className="navbar-toggler"

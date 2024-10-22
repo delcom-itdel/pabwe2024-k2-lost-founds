@@ -1,7 +1,7 @@
 // LostFoundDetail.jsx
 import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { lostFoundItemShape } from "./LostFoundItem";
+import { lostFoundItemShape } from "./AllLostFoundItem";
 import { postedAt } from "../utils/tools";
 import { FaClock, FaPenToSquare, FaUpload } from "react-icons/fa6";
 import { MdOutlineImageNotSupported } from "react-icons/md";

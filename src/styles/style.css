@@ -375,7 +375,7 @@ textarea.form-control {
   border: none;
   padding: 12px 24px;
   font-size: 1rem;
-  border-radius: 50px;
+  border-radius: 20px;
   transition: all 0.3s ease;
 }
 
