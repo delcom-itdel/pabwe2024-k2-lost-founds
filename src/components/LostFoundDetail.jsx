@@ -135,7 +135,10 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
         </div>
 
         {/* Lost Found Details */}
-        <div className="row align-items-center">
+        <div className="row align-items-center" 
+          style={{
+            width: "900px"
+          }}>
           <div className="col-12">
             <div className="d-flex justify-content-between align-items-center">
               <div className="d-flex align-items-center mt-2 detail-header">
@@ -148,34 +151,6 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                 <h5 className="mb-0">{lostfound.title}</h5>
                 </div>
 
-              {isCurrentUserItem && (
-                <div>
-                  {/* "Edit" Button */}
-                  <button
-                    type="button"
-                    onClick={() => setIsEditing((prevState) => !prevState)}
-                    className="btn btn-sm btn-outline-warning me-2"
-                  >
-                    <FaPenToSquare /> {isEditing ? "Cancel Edit" : "Edit"}
-                  </button>
-
-                  {/* Update Cover Button */}
-                  <button
-                    className="btn btn-sm btn-outline-primary"
-                    onClick={handleUploadClick}
-                  >
-                    <FaUpload /> {isUploading ? "Uploading..." : "Update Cover"}
-                  </button>
-
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    className="d-none"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                  />
-                </div>
-              )}
             </div>
 
             <div className="col-12">
@@ -196,7 +171,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
             <div className="col-12 mt-3">
               {isEditing ? (
                 <div>
-                  <div className="mb-3">
+                  <div className="mb-2">
                     <label htmlFor="editTitle" className="form-label">
                       Edit Title
                     </label>
@@ -208,7 +183,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                       onChange={(e) => setEditedTitle(e.target.value)}
                     />
                   </div>
-                  <div className="mb-3">
+                  <div className="mb-2">
                     <label htmlFor="editDescription" className="form-label">
                       Edit Description
                     </label>
@@ -221,7 +196,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                     />
                   </div>
 
-                  <div className="mb-3">
+                  <div className="mb-2">
                     <label htmlFor="editStatus" className="form-label">
                       Status
                     </label>
@@ -236,7 +211,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                     </select>
                   </div>
 
-                  <div className="mb-3">
+                  <div className="mb-2">
                     <label htmlFor="editCompleted" className="form-label">
                       Selesai?
                     </label>
@@ -255,7 +230,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
 
                   <div className="d-flex justify-content-end">
                     <button
-                      className="btn btn-primary"
+                      className="btn btn-save"
                       onClick={handleSaveChanges}
                     >
                       Save
@@ -263,7 +238,39 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                   </div>
                 </div>
               ) : (
-                <div>{lostfound.description}</div>
+                <div className="description">
+                  {lostfound.description}
+                  <div className="edit-btn">
+                    {isCurrentUserItem && (
+                      <div>
+                        {/* "Edit" Button */}
+                        <button
+                          type="button"
+                          onClick={() => setIsEditing((prevState) => !prevState)}
+                          className="btn btn-sm btn-outline-warning me-2"
+                        >
+                          <FaPenToSquare /> {isEditing ? "Cancel Edit" : "Edit"}
+                        </button>
+
+                        {/* Update Cover Button */}
+                        <button
+                          className="btn btn-sm btn-outline-primary"
+                          onClick={handleUploadClick}
+                        >
+                          <FaUpload /> {isUploading ? "Uploading..." : "Update Cover"}
+                        </button>
+
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          className="d-none"
+                          accept="image/*"
+                          onChange={handleFileChange}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
               )}
             </div>
           </div>

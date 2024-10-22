@@ -67,7 +67,7 @@ function LostFoundInput({ onAddLostFound }) {
             </div>
           </div>
           <div className="mb-4 text-end mt-3">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-add">
               Add to Lost & Found
             </button>
           </div>

@@ -30,9 +30,9 @@ function LostFoundItem({ lostfound, onDeleteLostFound }) {
     <div className="card mt-3">
       <div className="card-body">
         <div className="row align-items-center">
-          <div className="col-8 d-flex">
+          <div className="col-8 d-flex item-home">
             <h5>
-              <Link to={`/lostfound/${lostfound.id}`} className="text-primary">
+              <Link to={`/lostfound/${lostfound.id}`}>
                 {lostfound.title}
               </Link>
             </h5>

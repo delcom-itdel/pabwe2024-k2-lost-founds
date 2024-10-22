@@ -3,7 +3,6 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 body {
@@ -330,6 +329,7 @@ form {
 
 .navigation {
   background-color: #214063;
+  padding: 15px 5px 15px 15px;
 }
 
 
@@ -372,4 +372,35 @@ form {
 
 .detail-txt *{
   font-size: smaller;
+}
+
+.description{
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-btn{
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
+.btn-save,
+.btn-add{
+  background-color: #14273d;
+  color: white;
+  padding: 6px 25px;
+  border: 2px solid transparent;
+  font-weight: 500;
+}
+
+.btn-save:hover,
+.btn-add:hover{
+  background-color: transparent;
+  border: 2px solid #14273d;
+  font-weight: 500;
+}
+
+.mb-2 label{
+  margin: 5px 0px 3px 0px;
 }
