@@ -1,14 +1,9 @@
 html {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
 }
 
 body {
-  margin: 0; /* Remove any default body margins */
-  padding: 0;
   background-color: #caddeb;
 }
 
@@ -31,11 +26,11 @@ a {
 }
 
 .navbar {
-  margin: 0; /* Ensures no space below navigation */
-  padding: 0; /* Ensures no extra padding at the bottom */
+  padding: 0;
 }
 .margin-main {
-  margin-top: 80px;
+  margin-top: 46px;
+  margin-bottom: 80px;
 }
 
 * {
@@ -43,6 +38,7 @@ a {
   margin: 0;
   padding: 0;
 }
+
 .loading {
   position: relative;
   overflow: hidden !important;
@@ -82,21 +78,6 @@ a {
   }
 }
 
-/* Ensure the entire page takes up full viewport height */
-.register-page,
-.login-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: linear-gradient(
-    #f7bd94,
-    #9bbabd,
-    #51777c,
-    #c4d5c4,
-    #eeeeee
-  );
-}
-
 .register-box,
 .login-box {
   width: 100%;
@@ -104,40 +85,25 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-}
-
-/* Centering the form and applying styles */
-.form-container {
-  background-color: rgba(160, 179, 192, 0.841);
-  padding: 30px;
-  width: 100%;
-  max-width: 500px; /* Restricts max width for the form */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px; /* Membuat form lebih rounded */
-}
-
-.form-container h1 {
   text-align: center;
-  color: #14273d;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  gap: 80px;
 }
 
 .btn-signup,
 .btn-login {
   background-color: #14273d;
   color: white;
-  border: none;
+  border: solid;
+  border-color: rgba(0, 0, 0, 0.1);
   padding: 12px 24px;
   font-size: 16px;
   border-radius: 10px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan lebih besar */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-weight: 700;
-  transition: all 0.3s ease; /* Transisi untuk efek hover */
-  margin-top: 20px; /* Tambahkan margin untuk memberikan spasi */
-  width: 100%; /* Membuat tombol selebar form */
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  width: 100%;
 }
 
 .btn-login {
@@ -146,9 +112,8 @@ a {
 
 .btn-signup:hover,
 .btn-login:hover {
-  background-color: #9bbabd; /* Warna lebih terang saat hover */
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); /* Bayangan saat hover */
-  transform: translateY(-2px); /* Efek melayang */
+  background-color: #9bbabd;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
   border: 2px solid #51777c;
   color: #51777c;
   background-color: transparent;
@@ -156,11 +121,9 @@ a {
 
 .btn-signup:active,
 .btn-login:active {
-  transform: translateY(0); /* Menghilangkan efek melayang saat diklik */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan lebih kecil saat diklik */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Animasi Fade In */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -173,45 +136,43 @@ a {
 }
 
 .profile-container {
-  background-color: #caddeb; /* Change this to your preferred color */
+  background-color: #caddeb;
   padding: 20px;
-  max-width: 500px; /* Reduce the max-width to make the container smaller */
+  max-width: 500px;
   margin: 0 auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  animation: fadeIn 0.5s ease; /* Tambahkan animasi fade in */
+  animation: fadeIn 0.5s ease;
 }
 
 .profile-table {
-  width: 80%; /* Reduce the table width to make it smaller */
+  width: 80%;
   margin: 0 auto;
-  border-collapse: collapse; /* Ensure the borders are not spaced */
-  border: 3px solid #51777c; /* Outer table border with a thick line */
+  border-collapse: collapse;
+  border: 3px solid #51777c;
 }
 
-/* Text alignment for profile table */
 .profile-table th,
 .profile-table td {
   padding: 8px;
-  border: 2px solid #51777c; /* Thicker inner borders for each cell */
-  text-align: left; /* Align text to the left */
-  font-size: 0.9rem; /* Reduce the font size slightly for a smaller table */
+  border: 2px solid #51777c;
+  text-align: left;
+  font-size: 0.9rem;
 }
 
 .profile-table th {
-  background-color: #e3e8ef; /* Light background for headers */
-  color: #14273d; /* Darker text for headers */
+  background-color: #e3e8ef;
+  color: #14273d;
   font-weight: bold;
 }
 
-/* Profile image styling */
 .rounded-circle {
   border: 2px solid #b4cbec;
-  transition: transform 0.3s ease; /* Transisi untuk efek hover pada gambar */
+  transition: transform 0.3s ease;
 }
 
 .rounded-circle:hover {
-  transform: scale(1.1); /* Sedikit membesar saat hover */
+  transform: scale(1.1);
 }
 
 a.btn {
@@ -291,43 +252,216 @@ form {
   margin-bottom: 0px;
 }
 
+/* Split container styling for LostFoundAddPage */
 .split-container {
-  display: flex; /* Ensures both sides are evenly spaced */
+  display: flex;
   height: 100vh;
-  margin-top: 0; /* Ensure no margin at the top */
-  padding-top: 0;
 }
 
+/* Left side (image + content) */
 .left-side {
-  flex: 1; /* Takes up equal width as the right side */
-  background-image: url("gambar.jpg"); /* Ganti dengan path gambar */
+  flex: 1;
+  background-image: url("gambar.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 200px;
-  padding-top: 0;
+  padding: 50px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .left-content {
+  background-color: rgba(0, 0, 0, 0.6);
   color: rgb(241, 249, 255);
   text-align: center;
-  padding: 70px;
-  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
   border-radius: 10px;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+.left-content h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.left-content p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #c1e1ff;
+}
+
+/* Right side (form container) */
 .right-side {
-  flex: 1; /* Takes up the right half */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
   background-color: #e6eaea;
-  padding-top: 0;
+}
+
+.form-container {
+  background-color: rgba(160, 179, 192, 0.9);
+  padding: 30px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card styling for the Lost & Found form */
+.card {
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 100%;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h3 {
+  font-size: 1.8rem;
+  color: #14273d;
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+.form-label {
+  font-size: 1rem;
+  color: #14273d;
+  margin-bottom: 8px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.input-group input {
+  flex-grow: 1;
+  border-radius: 50px;
+  padding-left: 20px;
+  border: 1px solid #51777c;
+}
+
+.input-group-text {
+  background-color: #e6eaea;
+  border: 1px solid #51777c;
+  border-radius: 50px;
+  padding: 10px 15px;
+  font-size: 0.85rem;
+  color: #14273d;
+}
+
+textarea.form-control {
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid #51777c;
+}
+
+.text-end span {
+  font-size: 0.85rem;
+  color: #51777c;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #14273d;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #9bbabd;
+  color: #51777c;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:active {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mb-4.text-end {
+  margin-top: 20px;
+}
+
+/* Hover effect on form elements */
+input:hover,
+textarea:hover {
+  border-color: #214063;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #214063;
+  box-shadow: 0 0 5px rgba(33, 64, 99, 0.2);
 }
 
 .navigation {
   background-color: #214063;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  border: 2px solid #51777c;
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 12px 15px;
+  border: 1px solid #51777c;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.stats-table th {
+  background-color: #214063;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.stats-table tr:nth-child(even) {
+  background-color: #e3e8ef;
+}
+
+.stats-table tr:hover {
+  background-color: #b8e1f1;
+  cursor: pointer;
+}
+
+.stats-table td {
+  color: #14273d;
+}
+
+h2 {
+  color: #14273d;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.loading-message {
+  color: #14273d;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
 }

@@ -10,8 +10,6 @@ import {
   isDeleteLostFoundReducer,
   isEditLostFoundReducer,
   detailLostFoundReducer,
-  statsDailyReducer,
-  statsMonthlyReducer,
   userReducer,
 } from "./lostfound/reducer";
 
@@ -33,10 +31,6 @@ const store = configureStore({
     isDeleteLostFound: isDeleteLostFoundReducer,
     isEditLostFound: isEditLostFoundReducer,
     detailLostFound: detailLostFoundReducer,
-
-    //Stats
-    statsDaily: statsDailyReducer,
-    statsMonthly: statsMonthlyReducer,
   },
 });
 

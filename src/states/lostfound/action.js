@@ -224,34 +224,6 @@ function asyncDetailLostFound(id) {
   };
 }
 
-function asyncGetStatsDaily(end_date, total_data) {
-  return async (dispatch) => {
-    dispatch(showLoading());
-    try {
-      const stats = await api.getStatsDaily({ end_date, total_data });
-      dispatch(getStatsDailyActionCreator(stats));
-    } catch (error) {
-      showErrorDialog(error.message);
-    } finally {
-      dispatch(hideLoading());
-    }
-  };
-}
-
-function asyncGetStatsMonthly(end_date, total_data) {
-  return async (dispatch) => {
-    dispatch(showLoading());
-    try {
-      const stats = await api.getStatsMonthly({ end_date, total_data });
-      dispatch(getStatsMonthlyActionCreator(stats));
-    } catch (error) {
-      showErrorDialog(error.message);
-    } finally {
-      dispatch(hideLoading());
-    }
-  };
-}
-
 export {
   ActionType,
   asyncGetMe,
@@ -268,7 +240,5 @@ export {
   changeCoverLostFoundActionCreator,
   asyncChangeCoverLostFound,
   getStatsDailyActionCreator,
-  asyncGetStatsDaily,
   getStatsMonthlyActionCreator,
-  asyncGetStatsMonthly,
 };

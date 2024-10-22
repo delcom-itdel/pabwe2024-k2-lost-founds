@@ -7,21 +7,21 @@ function RegisterInput({ onAuthRegister }) {
   const [password, onPasswordChange] = useInput("");
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page refresh
+    e.preventDefault();
     onAuthRegister({ name, email, password });
   };
 
   return (
     <form onSubmit={handleSubmit} className="register-form">
-      <div className="register-box" >
+      <div className="register-box">
         <div className="register-header">
-          <h1>Hello, Friend!</h1>
+          <h1>Hello!</h1>
           <p>Enter your personal details and start journey with us</p>
         </div>
         <div className="regis-form">
           <h1>Welcome!</h1>
           <div className="mb-3">
-          <box-icon type='solid' name='user'></box-icon>
+            <box-icon type="solid" name="user"></box-icon>
             <input
               type="text"
               id="inputName"
