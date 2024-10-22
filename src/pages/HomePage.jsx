@@ -1,7 +1,8 @@
 // HomePage.jsx
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import LostFoundList from "../components/LostFoundList";
+import AllLostFoundList from "../components/AllLostFoundList";
+import MyLostFoundList from "../components/MyLostFoundList"; // Assuming this component is available
 import {
   asyncGetLostFounds,
   asyncDeleteLostFound,
@@ -19,6 +20,8 @@ function HomePage() {
     isDeleteLostFound: state.isDeleteLostFound,
     currentUser: state.currentUser,
   }));
+
+  const [showMyItems, setShowMyItems] = useState(false); // State to toggle between lists
 
   const queryParams = new URLSearchParams(location.search);
   const is_completed = queryParams.get("is_completed") || "";
@@ -52,18 +55,53 @@ function HomePage() {
     dispatch(asyncDeleteLostFound(id));
   };
 
-  // Sorting from earliest to latest
   const sortedLostFounds = lostfounds.slice().sort((a, b) => {
     return new Date(b.created_at) - new Date(a.created_at);
   });
 
+  // Filter for the current user's items
+  const myLostFounds = sortedLostFounds.filter(
+    (lostfound) => lostfound.user_id === currentUser?.id
+  );
+
   return (
     <section>
       <div className="container pt-1">
-        <LostFoundList
-          lostfounds={sortedLostFounds}
-          onDeleteLostFound={onDeleteLostFound}
-        ></LostFoundList>
+        {/* Toggle buttons */}
+        <div className="d-flex justify-content-start mb-3">
+          <button
+            className={`btn ${
+              !showMyItems ? "btn-primary" : "btn-primary"
+            } me-2`}
+            onClick={() => setShowMyItems(false)}
+          >
+            All
+          </button>
+          <button
+            className={`btn ${showMyItems ? "btn-primary" : "btn-primary"}`}
+            onClick={() => setShowMyItems(true)}
+          >
+            My Lost & Founds
+          </button>
+        </div>
+
+        {/* Dynamic Header */}
+        <h3 className="mb-4">
+          {showMyItems ? "My Lost & Founds" : "All Lost & Founds"}
+        </h3>
+
+        {/* Conditionally render lists */}
+        {!showMyItems ? (
+          <AllLostFoundList
+            lostfounds={sortedLostFounds}
+            onDeleteLostFound={onDeleteLostFound}
+          />
+        ) : (
+          <MyLostFoundList
+            lostfounds={myLostFounds}
+            onDeleteLostFound={onDeleteLostFound}
+          />
+        )}
       </div>
     </section>
   );
