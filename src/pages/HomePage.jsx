@@ -21,7 +21,7 @@ function HomePage() {
     currentUser: state.currentUser,
   }));
 
-  const [showMyItems, setShowMyItems] = useState(false);
+  const [showMyItems, setShowMyItems] = useState(false); // State to toggle between lists
 
   const queryParams = new URLSearchParams(location.search);
   const is_completed = queryParams.get("is_completed") || "";
@@ -84,6 +84,11 @@ function HomePage() {
             My Lost & Founds
           </button>
         </div>
+
+        {/* Dynamic Header */}
+        <h3 className="mb-4">
+          {showMyItems ? "My Lost & Founds" : "All Lost & Founds"}
+        </h3>
 
         {/* Conditionally render lists */}
         {!showMyItems ? (
