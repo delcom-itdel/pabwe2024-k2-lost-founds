@@ -1,4 +1,4 @@
-// LostFoundDetail.jsx
+// LostFoundDetail.jsx :
 import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { lostFoundItemShape } from "./AllLostFoundItem";
@@ -29,6 +29,8 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
   const [isUploading, setIsUploading] = useState(false);
 
   const fileInputRef = useRef(null);
+
+  const containerHeight = isEditing ? "auto" : "300px"; // Expands to fit content when editing
 
   useEffect(() => {
     if (id) {
@@ -89,92 +91,111 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
   };
 
   let badgeCompleted = lostfound.is_completed
-    ? "badge bg-success text-white ms-3"
-    : "badge bg-warning text-dark ms-3";
+    ? "badge bg-success text-white ms-2"
+    : "badge bg-warning text-dark ms-2";
   let badgeLabel = lostfound.is_completed ? "Selesai" : "Belum Selesai";
 
   let badgeStatus = "badge ";
   if (lostfound.status === "lost") {
-    badgeStatus += " bg-danger text-white";
+    badgeStatus += "bg-danger text-white";
   } else if (lostfound.status === "found") {
-    badgeStatus += " bg-info text-white";
+    badgeStatus += "bg-info text-white";
   }
 
   return (
     <div className="card mt-3">
-      <div className="card-body image-detail">
-        {/* Cover Image */}
+      <div className="card-body">
+        {/* Container with flexbox for two-column layout */}
         <div
-          style={{
-            width: "300px",
-            height: "300px",
-            position: "relative",
-            backgroundColor: "#f0f0f1",
-            marginBottom: "5px",
-            overflow: "hidden",
-          }}
+          className="d-flex align-items-center"
+          style={{ height: containerHeight }} // Apply dynamic height here
         >
-          {previewCover ? (
-            <img
-              src={previewCover}
-              alt="Cover"
-              style={{
-                borderRadius: "6px",
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center",
-                position: "absolute",
-                top: "0",
-                left: "0",
-              }}
-            />
-          ) : (
-            <p>
-              <MdOutlineImageNotSupported />
-              &nbsp; &nbsp;No cover image
-            </p>
-          )}
-        </div>
+          {/* Left Column - Cover Image */}
+          <div
+            className="cover-image-container"
+            style={{
+              flex: "1",
+              height: "100%",
+              backgroundColor: "#f0f0f1",
+              overflow: "hidden",
+            }}
+          >
+            {previewCover ? (
+              <img
+                src={previewCover}
+                alt="Cover"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
+              />
+            ) : (
+              <div className="d-flex flex-column justify-content-center align-items-center h-100">
+                <MdOutlineImageNotSupported size={64} />
+                <p>No cover image</p>
+              </div>
+            )}
+          </div>
 
-        {/* Lost Found Details */}
-        <div className="row align-items-center" 
-          style={{
-            width: "900px"
-          }}>
-          <div className="col-12">
+          {/* Right Column - Lost Found Details */}
+          <div className="ms-3" style={{ flex: "1" }}>
             <div className="d-flex justify-content-between align-items-center">
-              <div className="d-flex align-items-center mt-2 detail-header">
-                <div className="d-flex badge-detail">
-                  <span className={badgeStatus}>
-                    {lostfound.status === "lost" ? "Lost" : "Found"}
-                  </span>
-                  <span className={`${badgeCompleted} ms-2`}>{badgeLabel}</span>
-                </div>
-                <h5 className="mb-0">{lostfound.title}</h5>
+              {/* Title and Badges */}
+              <div className="d-flex align-items-center">
+                <h5 className="mb-0 me-3">{lostfound.title}</h5>
+                <span className={badgeStatus}>
+                  {lostfound.status === "lost" ? "Lost" : "Found"}
+                </span>
+                <span className={badgeCompleted}>{badgeLabel}</span>
               </div>
 
+              {/* Action Buttons */}
+              {isCurrentUserItem && (
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => setIsEditing((prevState) => !prevState)}
+                    className="btn btn-sm btn-outline-warning me-2"
+                  >
+                    <FaPenToSquare /> {isEditing ? "Cancel Edit" : "Edit"}
+                  </button>
+
+                  <button
+                    className="btn btn-sm btn-outline-primary"
+                    onClick={handleUploadClick}
+                  >
+                    <FaUpload /> {isUploading ? "Uploading..." : "Update Cover"}
+                  </button>
+
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    className="d-none"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                  />
+                </div>
+              )}
             </div>
 
-            <div className="col-12">
-              <div className="text-sm op-5 detail-txt">
-                <FaClock />
-                <span className="ps-1">{postedAt(lostfound.created_at)}</span>
-                {/* Display author */}
-                <span className="ms-2 text-muted">
-                  {lostfound.author
-                    ? `by ${lostfound.author.name}`
-                    : "Author unknown"}
-                </span>
-              </div>
+            <div className="text-sm text-muted mt-2">
+              <FaClock />
+              <span className="ps-1">{postedAt(lostfound.created_at)}</span>
+              <span className="ms-2 text-muted">
+                {lostfound.author
+                  ? `by ${lostfound.author.name}`
+                  : "Author unknown"}
+              </span>
             </div>
 
             <hr />
 
-            <div className="col-12 mt-3">
+            <div className="col-12">
               {isEditing ? (
                 <div>
-                  <div className="mb-2">
+                  <div className="mb-3">
                     <label htmlFor="editTitle" className="form-label">
                       Edit Title
                     </label>
@@ -186,7 +207,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                       onChange={(e) => setEditedTitle(e.target.value)}
                     />
                   </div>
-                  <div className="mb-2">
+                  <div className="mb-3">
                     <label htmlFor="editDescription" className="form-label">
                       Edit Description
                     </label>
@@ -199,7 +220,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                     />
                   </div>
 
-                  <div className="mb-2">
+                  <div className="mb-3">
                     <label htmlFor="editStatus" className="form-label">
                       Status
                     </label>
@@ -214,7 +235,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                     </select>
                   </div>
 
-                  <div className="mb-2">
+                  <div className="mb-3">
                     <label htmlFor="editCompleted" className="form-label">
                       Selesai?
                     </label>
@@ -233,7 +254,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
 
                   <div className="d-flex justify-content-end">
                     <button
-                      className="btn btn-save"
+                      className="btn btn-primary"
                       onClick={handleSaveChanges}
                     >
                       Save
@@ -241,39 +262,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                   </div>
                 </div>
               ) : (
-                <div className="description">
-                  {lostfound.description}
-                  <div className="edit-btn">
-                    {isCurrentUserItem && (
-                      <div>
-                        {/* "Edit" Button */}
-                        <button
-                          type="button"
-                          onClick={() => setIsEditing((prevState) => !prevState)}
-                          className="btn btn-sm btn-outline-warning me-2"
-                        >
-                          <FaPenToSquare /> {isEditing ? "Cancel Edit" : "Edit"}
-                        </button>
-
-                        {/* Update Cover Button */}
-                        <button
-                          className="btn btn-sm btn-outline-primary"
-                          onClick={handleUploadClick}
-                        >
-                          <FaUpload /> {isUploading ? "Uploading..." : "Update Cover"}
-                        </button>
-
-                        <input
-                          ref={fileInputRef}
-                          type="file"
-                          className="d-none"
-                          accept="image/*"
-                          onChange={handleFileChange}
-                        />
-                      </div>
-                    )}
-                  </div>
-                </div>
+                <div>{lostfound.description}</div>
               )}
             </div>
           </div>
