@@ -28,6 +28,7 @@ a {
 .navbar {
   padding: 0;
 }
+
 .margin-main {
   margin-top: 46px;
   margin-bottom: 80px;
@@ -39,6 +40,7 @@ a {
   padding: 0;
 }
 
+/* Loading styles */
 .loading {
   position: relative;
   overflow: hidden !important;
@@ -61,7 +63,7 @@ a {
   box-sizing: border-box;
   border-radius: 50%;
   background: radial-gradient(circle 5px, currentColor 95%, #0000),
-    linear-gradient(currentColor 50%, #0000 0) 50%/4px 60% norepeat;
+    linear-gradient(currentColor 50%, #0000 0) 50%/4px 60% no-repeat;
   animation: l1 2s infinite linear;
 }
 
@@ -78,6 +80,7 @@ a {
   }
 }
 
+/* Form page */
 .register-box,
 .login-box {
   width: 100%;
@@ -135,6 +138,7 @@ a {
   }
 }
 
+/* Profile page */
 .profile-container {
   background-color: #caddeb;
   padding: 20px;
@@ -175,6 +179,7 @@ a {
   transform: scale(1.1);
 }
 
+/* Buttons */
 a.btn {
   background-color: white;
   border: 2px solid white;
@@ -195,11 +200,13 @@ li.nav-item {
   background-color: transparent;
 }
 
+/* Input styling */
 .mb-3 input {
   border-radius: 50px;
   padding-left: 20px;
 }
 
+/* Registration and Login */
 .card-registration {
   width: 500px;
   position: absolute;
@@ -247,18 +254,12 @@ form {
   background-color: #14273d;
 }
 
-.register-header,
-.login-header {
-  margin-bottom: 0px;
-}
-
-/* Split container styling for LostFoundAddPage */
+/* Lost and Found page */
 .split-container {
   display: flex;
   height: 100vh;
 }
 
-/* Left side (image + content) */
 .left-side {
   flex: 1;
   background-image: url("gambar.jpg");
@@ -292,7 +293,6 @@ form {
   color: #c1e1ff;
 }
 
-/* Right side (form container) */
 .right-side {
   flex: 1;
   display: flex;
@@ -309,32 +309,13 @@ form {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Card styling for the Lost & Found form */
-.card {
-  background-color: #ffffff;
-  border: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  width: 100%;
-}
-
-.card-body {
-  padding: 20px;
-}
-
-.card-body h3 {
-  font-size: 1.8rem;
-  color: #14273d;
-  margin-bottom: 20px;
-}
-
-/* Form styling */
 .form-label {
   font-size: 1rem;
   color: #14273d;
   margin-bottom: 8px;
 }
 
+/* Input group */
 .input-group {
   display: flex;
   align-items: center;
@@ -357,6 +338,7 @@ form {
   color: #14273d;
 }
 
+/* Form textarea */
 textarea.form-control {
   border-radius: 10px;
   padding: 15px;
@@ -368,7 +350,7 @@ textarea.form-control {
   color: #51777c;
 }
 
-/* Button styling */
+/* Form buttons */
 .btn-primary {
   background-color: #14273d;
   color: white;
@@ -389,11 +371,7 @@ textarea.form-control {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.mb-4.text-end {
-  margin-top: 20px;
-}
-
-/* Hover effect on form elements */
+/* Form focus and hover */
 input:hover,
 textarea:hover {
   border-color: #214063;
@@ -410,56 +388,7 @@ textarea:focus {
   background-color: #214063;
 }
 
-.stats-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  background-color: #f8f9fa;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  border: 2px solid #51777c;
-}
-
-.stats-table th,
-.stats-table td {
-  padding: 12px 15px;
-  border: 1px solid #51777c;
-  text-align: left;
-  font-size: 0.95rem;
-}
-
-.stats-table th {
-  background-color: #214063;
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.stats-table tr:nth-child(even) {
-  background-color: #e3e8ef;
-}
-
-.stats-table tr:hover {
-  background-color: #b8e1f1;
-  cursor: pointer;
-}
-
-.stats-table td {
-  color: #14273d;
-}
-
-.error-message {
-  color: red;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-
-.loading-message {
-  color: #14273d;
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: 20px;
-}
-
+/* Tables */
 .stats-table {
   width: 100%;
   border-collapse: collapse;
@@ -516,6 +445,7 @@ h2 {
   margin-top: 20px;
 }
 
+/* Image detail */
 .image-detail p {
   height: 100%;
   display: flex;
@@ -554,4 +484,22 @@ h2 {
 
 .detail-txt * {
   font-size: smaller;
+}
+
+.card {
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 100%;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h3 {
+  font-size: 1.8rem;
+  color: #14273d;
+  margin-bottom: 20px;
 }
