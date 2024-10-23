@@ -1,4 +1,3 @@
-// LostFoundDetail.jsx :
 import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { lostFoundItemShape } from "./AllLostFoundItem";
@@ -9,6 +8,7 @@ import api from "../utils/api";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncDetailLostFound } from "../states/lostfound/action";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2"; // Import Swal
 
 function LostFoundDetail({ lostfound, onEditLostFound }) {
   const { id } = useParams();
@@ -67,8 +67,19 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
         cover: file,
       });
       dispatch(asyncDetailLostFound(lostfound.id));
+      Swal.fire({
+        icon: "success",
+        title: "Berhasil mengubah gambar cover!",
+        showConfirmButton: false,
+        timer: 1200,
+      });
     } catch (error) {
       console.error("Failed to upload cover:", error.message);
+      Swal.fire({
+        icon: "error",
+        title: "Gagal mengubah gambar cover!",
+        text: error.message,
+      });
     }
     setIsUploading(false);
   };
@@ -127,7 +138,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
                 style={{
                   width: "100%",
                   height: "100%",
-                  objectFit: "cover",
+                  objectFit: "contain",
                   objectPosition: "center",
                 }}
               />
