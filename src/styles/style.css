@@ -503,3 +503,126 @@ h2 {
   color: #14273d;
   margin-bottom: 20px;
 }
+
+/* Media queries for LostFoundDetail component */
+@media (max-width: 768px) {
+  .lost-found-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .cover-image-container,
+  .right-column {
+    width: 100%;
+    height: auto;
+  }
+
+  .cover-image-container img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* General Media Queries */
+@media (max-width: 1200px) {
+  .register-box,
+  .login-box {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .card-registration {
+    width: 400px;
+  }
+}
+
+@media (max-width: 992px) {
+  .split-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-side,
+  .right-side {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .left-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .left-content p {
+    font-size: 1rem;
+  }
+
+  .btn-signup,
+  .btn-login {
+    width: 80%;
+    font-size: 14px;
+  }
+
+  .profile-table {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .left-side,
+  .right-side {
+    padding: 15px;
+  }
+
+  .btn-signup,
+  .btn-login {
+    font-size: 12px;
+    padding: 10px 20px;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .stats-table {
+    font-size: 0.85rem;
+  }
+
+  .loading-message {
+    font-size: 1rem;
+  }
+
+  .profile-container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn-signup,
+  .btn-login {
+    padding: 8px 16px;
+    font-size: 11px;
+  }
+
+  .left-content h1 {
+    font-size: 1.4rem;
+  }
+
+  .left-content p {
+    font-size: 0.9rem;
+  }
+
+  .register-box,
+  .login-box {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-registration {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .profile-container {
+    padding: 15px;
+  }
+}

@@ -107,7 +107,7 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
       <div className="card-body">
         {/* Container with flexbox for two-column layout */}
         <div
-          className="d-flex align-items-center"
+          className="d-flex align-items-center lost-found-container"
           style={{ height: containerHeight }} // Apply dynamic height here
         >
           {/* Left Column - Cover Image */}
@@ -134,13 +134,13 @@ function LostFoundDetail({ lostfound, onEditLostFound }) {
             ) : (
               <div className="d-flex flex-column justify-content-center align-items-center h-100">
                 <MdOutlineImageNotSupported size={64} />
-                <p>No cover image</p>
+                <p>No image</p>
               </div>
             )}
           </div>
 
           {/* Right Column - Lost Found Details */}
-          <div className="ms-3" style={{ flex: "1" }}>
+          <div className="ms-3 right-column" style={{ flex: "1" }}>
             <div className="d-flex justify-content-between align-items-center">
               {/* Title and Badges */}
               <div className="d-flex align-items-center">
